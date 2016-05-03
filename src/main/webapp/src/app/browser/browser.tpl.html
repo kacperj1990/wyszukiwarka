@@ -1,0 +1,77 @@
+<!-- Nested node template -->
+<script type="text/ng-template" id="nodes_renderer.html">
+  <div ui-tree-handle class="tree-node tree-node-content" ng-click="loadContacts(this)">
+    <a class="btn btn-default btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)"><span
+        class="glyphicon"
+        ng-class="{
+          'glyphicon-chevron-right': collapsed,
+          'glyphicon-chevron-down': !collapsed
+        }"></span></a>
+    {{node.title}}
+
+    <span ng-show="node.nodes && node.nodes.length === 0">
+	    <a class="pull-right btn btn-danger btn-xs" data-nodrag><span
+	        class="glyphicon glyphicon-remove"></span></a>
+
+	    <a class="pull-right btn btn-success btn-xs" data-nodrag style="margin-right: 8px;"><span
+	        class="glyphicon glyphicon-plus"></span></a>
+    </span>
+
+  </div>
+  <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+    <li ng-repeat="node in node.nodes" ui-tree-node data-collapsed="true" ng-include="'nodes_renderer.html'">
+    </li>
+  </ol>
+</script>
+
+<div class="row" style="margin-bottom: 20px;">
+	<form class="" role="search">
+		<div class="col-sm-9 col-sm-offset-1">
+			<input type="text" class="form-control" placeholder="Szukaj kontaktów" ng-model="searchText">
+		</div>
+		<div class="col-sm-1">
+			<a type="submit" class="btn btn-info" ng-click="searchContact()">Szukaj</a>
+		</div>
+	</form>
+</div>
+
+<div class="row">
+	<div class="col-sm-5 col-sm-offset-1">
+		<div class="panel panel-primary">
+		    <div class="panel-heading">
+		      <h3 class="panel-title">Kategorie</h3>
+		    </div>
+		    <div class="panel-body">
+
+				    <div ui-tree id="tree-root" data-drag-enabled="false">
+				      <ol ui-tree-nodes ng-model="data" data-nodrop-enabled="true">
+				        <li ng-repeat="node in data" ui-tree-node data-collapsed="true" ng-include="'nodes_renderer.html'"></li>
+				      </ol>
+				    </div>
+
+		    </div>
+	     </div>
+	</div>
+	<div class="col-sm-5">
+		<div class="panel panel-primary" cg-busy="{promise:promise,templateUrl:templateUrl,message:message,backdrop:backdrop,delay:delay,minDuration:minDuration}">
+		    <div class="panel-heading">
+		      <h3 class="panel-title">Kontakty</h3>
+		    </div>
+		    <div class="panel-body">
+				<div class="list-group" du-scroll-container>
+					<div class="panel panel-warning" ng-repeat="contact in contacts">
+		                <div class="panel-heading">
+		                  <h3 class="panel-title">{{contact.companyName}}</h3>
+		                </div>
+		                <div class="panel-body">
+		                	<p>{{contact.basicInfo}}</p>
+		                	<p>{{contact.contactPerson}}</p>
+		                	<p>{{contact.contactPhone}}</p>
+		                	<p>{{contact.basicMail}}</p>
+		                </div>
+	              	</div>              
+              </div>
+		    </div>
+	     </div>
+	</div>
+</div>

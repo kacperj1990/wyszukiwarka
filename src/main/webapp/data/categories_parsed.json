@@ -1,0 +1,420 @@
+[
+  {
+    "children": [
+      "Roboty specjalistyczne",
+      "Stan surowy",
+      "Wykończenie",
+      "Izolacje",
+      "Roboty specjalistyczne"
+    ],
+    "isRoot": true,
+    "id": "Wykonawcy"
+  },
+  {
+    "children": [
+      "Konstrukcje specjalistyczne",
+      "Iniekcje",
+      "Zabezpiecznia wykopu"
+    ],
+    "isRoot": false,
+    "id": "Roboty specjalistyczne"
+  },
+  {
+    "children": [
+      "Zbrojenia",
+      "Żelbety"
+    ],
+    "isRoot": false,
+    "id": "Stan surowy"
+  },
+  {
+    "children": [
+      "Okładziny",
+      "Żywice",
+      "Malowanie",
+      "Gładzie gipsowe",
+      "Roboty murarskie",
+      "Konstrukcje stalowe",
+      "Posadzki",
+      "Tynki"
+    ],
+    "isRoot": false,
+    "id": "Wykończenie"
+  },
+  {
+    "children": [
+      "Bezpowłokowe",
+      "Hydroizolacje",
+      "PPOŻ",
+      "Podziemie",
+      "Balkony/loggie",
+      "Dach",
+      "Elewacje"
+    ],
+    "isRoot": false,
+    "id": "Izolacje"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Konstrukcje specjalistyczne"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Iniekcje"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Zabezpiecznia wykopu"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Zbrojenia"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Żelbety"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Okładziny"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Żywice"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Malowanie"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Gładzie gipsowe"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Roboty murarskie"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Konstrukcje stalowe"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Posadzki"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Tynki"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Bezpowłokowe"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Hydroizolacje"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "PPOŻ"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Podziemie"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Balkony/loggie"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Dach"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Elewacje"
+  },
+  {
+    "children": [
+      "Architekci",
+      "Konstruktorzy",
+      "Instalatorzy",
+      "Drogowcy"
+    ],
+    "isRoot": true,
+    "id": "Projektanci"
+  },
+  {
+    "children": [
+      "Krajobraz",
+      "Wnętrza",
+      "Kubatura"
+    ],
+    "isRoot": false,
+    "id": "Architekci"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Konstruktorzy"
+  },
+  {
+    "children": [
+      "Wodno-kanalizacyjne",
+      "Wentylacja/klimatyzacja",
+      "Elektryka"
+    ],
+    "isRoot": false,
+    "id": "Instalatorzy"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Drogowcy"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Krajobraz"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Wnętrza"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Kubatura"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Wodno-kanalizacyjne"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Wentylacja/klimatyzacja"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Elektryka"
+  },
+  {
+    "children": [
+      "Stolarka",
+      "Ogólnobudowlane",
+      "Wyposażenie",
+      "Instalacje",
+      "Stan surowy"
+    ],
+    "isRoot": true,
+    "id": "Dostawcy"
+  },
+  {
+    "children": [
+      "Okienna",
+      "Drzwiowa",
+      "Aluminiowa"
+    ],
+    "isRoot": false,
+    "id": "Stolarka"
+  },
+  {
+    "children": [
+      "Materiały izolacyjne",
+      "Ceramiki - płytki",
+      "Parkiety, panele",
+      "Wykładziny",
+      "Sufity podwieszane"
+    ],
+    "isRoot": false,
+    "id": "Ogólnobudowlane"
+  },
+  {
+    "children": [
+      "Place zabaw",
+      "Siłownia/fitness",
+      "Spa",
+      "Sprzęt elektryczny",
+      "Meble",
+      "Kuchnia",
+      "Sprzęt komputerowy"
+    ],
+    "isRoot": false,
+    "id": "Wyposażenie"
+  },
+  {
+    "children": [
+      "PPOŻ",
+      "Elektryczne",
+      "Teletechniczne",
+      "Wentylacja",
+      "Sanitarne"
+    ],
+    "isRoot": false,
+    "id": "Instalacje"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Inne"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Okienna"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Drzwiowa"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Aluminiowa"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Materiały izolacyjne"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Ceramiki - płytki"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Parkiety, panele"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Wykładziny"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Sufity podwieszane"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Place zabaw"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Siłownia/fitness"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Spa"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Sprzęt elektryczny"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Meble"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Kuchnia"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Sprzęt komputerowy"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Elektryczne"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Teletechniczne"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Wentylacja"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Sanitarne"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Stal"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Beton"
+  },
+  {
+    "children": [
+      "Szalunki",
+      "Sprzęt budowlany",
+      "Dźwigi",
+      "Samochody"
+    ],
+    "isRoot": true,
+    "id": "Wynajem"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Szalunki"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Sprzęt budowlany"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Dźwigi"
+  },
+  {
+    "children": [],
+    "isRoot": false,
+    "id": "Samochody"
+  }
+]

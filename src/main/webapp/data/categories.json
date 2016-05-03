@@ -1,0 +1,367 @@
+[
+  {
+    "id": "1",
+    "title": "Wykonawcy",
+    "nodes": [
+      {
+        "id": "1.1",
+        "title": "Roboty specjalistyczne",
+        "nodes": [
+          {
+            "id": "1.1.1",
+            "title": "Konstrukcje specjalistyczne",
+            "nodes": []
+          },
+          {
+            "id": "1.1.2",
+            "title": "Iniekcje",
+            "nodes": []
+          },
+          {
+            "id": "1.1.3",
+            "title": "Zabezpieczenia wykopu",
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "id": "2.1",
+        "title": "Stan surowy",
+        "nodes": [
+          {
+            "id": "2.1.1",
+            "title": "Zbrojenia",
+            "nodes": []
+          },
+          {
+            "id": "2.1.2",
+            "title": "Żelbety",
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "id": "3.1",
+        "title": "Wykończenie",
+        "nodes": [
+          {
+            "id": "3.1.1",
+            "title": "Okładziny",
+            "nodes": []
+          },
+          {
+            "id": "3.1.2",
+            "title": "Żywice",
+            "nodes": []
+          },
+          {
+            "id": "3.1.3",
+            "title": "Malowanie",
+            "nodes": []
+          },
+          {
+            "id": "3.1.4",
+            "title": "Gładzie gipsowe",
+            "nodes": []
+          },
+          {
+            "id": "3.1.5",
+            "title": "Roboty murarskie",
+            "nodes": []
+          },
+          {
+            "id": "3.1.6",
+            "title": "Konstrukcje stalowe",
+            "nodes": []
+          },
+          {
+            "id": "3.1.7",
+            "title": "Posadzki",
+            "nodes": []
+          },
+          {
+            "id": "3.1.8",
+            "title": "Tynki",
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "id": "4.1",
+        "title": "Izolacje",
+        "nodes": [
+          {
+            "id": "4.1.1",
+            "title": "Bezpowłokowe",
+            "nodes": []
+          },
+          {
+            "id": "4.1.2",
+            "title": "Hydroizolacje",
+            "nodes": []
+          },
+          {
+            "id": "4.1.3",
+            "title": "PPOŻ",
+            "nodes": []
+          },
+          {
+            "id": "4.1.4",
+            "title": "Podziemie",
+            "nodes": []
+          },
+          {
+            "id": "4.1.5",
+            "title": "Balkony/loggie",
+            "nodes": []
+          },
+          {
+            "id": "4.1.6",
+            "title": "Dach",
+            "nodes": []
+          },
+          {
+            "id": "4.1.7",
+            "title": "Elewacje",
+            "nodes": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Projektanci",
+    "nodes": [
+      {
+        "id": "4.1",
+        "title": "Architekci",
+        "nodes": [
+          {
+            "id": "4.1.1",
+            "title": "Krajobraz",
+            "nodes": []
+          },
+          {
+            "id": "4.1.2",
+            "title": "Wnętrza",
+            "nodes": []
+          },
+          {
+            "id": "4.1.3",
+            "title": "Kubatura",
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "id": "4.2",
+        "title": "Konstruktorzy",
+        "nodes": []
+      },
+      {
+        "id": "4.3",
+        "title": "Instalatorzy",
+        "nodes": [
+          {
+            "id": "4.3.1",
+            "title": "Wodno-kanalizacyjne",
+            "nodes": []
+          },
+          {
+            "id": "4.3.2",
+            "title": "Wentylacja/klimatyzacja",
+            "nodes": []
+          },
+          {
+            "id": "4.3.3",
+            "title": "Elektryka",
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "id": "4.4",
+        "title": "Drogowcy",
+        "nodes": []
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Dostawcy",
+    "nodes": [
+      {
+        "id": "3.1",
+        "title": "Stolarka",
+        "nodes": [
+          {
+            "id": "3.1.1",
+            "title": "Okienna",
+            "nodes": []
+          },
+          {
+            "id": "3.1.2",
+            "title": "Drzwiowa",
+            "nodes": []
+          },
+          {
+            "id": "3.1.3",
+            "title": "Aluminiowa",
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "id": "3.2",
+        "title": "Ogólnobudowlane",
+        "nodes": [
+          {
+            "id": "3.2.1",
+            "title": "Materiały izolacyjne",
+            "nodes": []
+          },
+          {
+            "id": "3.2.2",
+            "title": "Ceramiki - płytki",
+            "nodes": []
+          },
+          {
+            "id": "3.2.3",
+            "title": "Parkiety, panele",
+            "nodes": []
+          },
+          {
+            "id": "3.2.4",
+            "title": "Wykładziny",
+            "nodes": []
+          },
+          {
+            "id": "3.2.5",
+            "title": "Sufity podwieszane",
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "id": "3.3",
+        "title": "Wyposażenie",
+        "nodes": [
+          {
+            "id": "3.3.1",
+            "title": "Place zabaw",
+            "nodes": []
+          },
+          {
+            "id": "3.3.2",
+            "title": "Siłownia/fitness",
+            "nodes": []
+          },
+          {
+            "id": "3.3.3",
+            "title": "Spa",
+            "nodes": []
+          },
+          {
+            "id": "3.3.4",
+            "title": "Sprzęt elektryczny",
+            "nodes": []
+          },
+          {
+            "id": "3.3.5",
+            "title": "Meble",
+            "nodes": []
+          },
+          {
+            "id": "3.3.6",
+            "title": "Kuchnia",
+            "nodes": []
+          },
+          {
+            "id": "3.3.7",
+            "title": "Sprzęt komputerowy",
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "id": "3.4",
+        "title": "Instalacje",
+        "nodes": [
+          {
+            "id": "3.4.1",
+            "title": "PPOŻ",
+            "nodes": []
+          },
+          {
+            "id": "3.4.2",
+            "title": "Elektryczne",
+            "nodes": []
+          },
+          {
+            "id": "3.4.3",
+            "title": "Teletechniczne",
+            "nodes": []
+          },
+          {
+            "id": "3.4.4",
+            "title": "Wentylacja",
+            "nodes": []
+          },
+          {
+            "id": "3.4.5",
+            "title": "Saniarne",
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "id": "3.5",
+        "title": "Stan surowy",
+        "nodes": [
+          {
+            "id": "3.5.1",
+            "title": "Stal",
+            "nodes": []
+          },
+          {
+            "id": "3.5.2",
+            "title": "Beton",
+            "nodes": []
+          }
+        ]
+      },
+      {
+        "id": "3.6",
+        "title": "Inne",
+        "nodes": []
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Wynajem",
+    "nodes": [
+      {
+        "id": "4.1.1",
+        "title": "Szalunki",
+        "nodes": []
+      },
+      {
+        "id": "4.1.2",
+        "title": "Sprzęt budowlany",
+        "nodes": []
+      },
+      {
+        "id": "4.1.3",
+        "title": "Dźwigi",
+        "nodes": []
+      },
+      {
+        "id": "4.1.4",
+        "title": "Samochody",
+        "nodes": []
+      }
+    ]
+  }
+]

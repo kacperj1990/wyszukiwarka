@@ -1,0 +1,122 @@
+<div class="row">
+	<div class="col-sm-4 col-sm-offset-1">
+		<h2>Użytkownicy</h2>
+		<div class="list-group">
+	        <a href class="list-group-item" ng-repeat="user in users" ng-click="selectUser(this)" ng-class="{active: user.login==selectedUser.login}">
+	        	{{user.name}} {{user.surname}}
+	        </a>
+	     </div>
+	     <a class="btn btn-success" ng-click="addUser()">Dodaj użytkownika</a>
+	</div>
+
+	<div class="col-sm-6" ng-hide="editMode">
+		<h2>Dane użytkownika</h2>
+		<form class="form-horizontal" style="background-color: #F8F8F8; border-radius: 15px; padding-top: 30px;">
+		    <fieldset>
+
+		      <div class="form-group">
+		        <label class="col-lg-2 control-label">Imię</label>
+		        <div class="col-lg-10">
+					<p style="margin-top: 10px;">{{selectedUser.name}}</p>
+		        </div>
+		      </div>
+
+		     <div class="form-group">
+		        <label for="inputEmail" class="col-lg-2 control-label">Nazwisko</label>
+		        <div class="col-lg-10">
+					<p style="margin-top: 10px;">{{selectedUser.surname}}</p>
+		        </div>
+		      </div>
+
+		   	  <div class="form-group">
+		        <label for="inputEmail" class="col-lg-2 control-label">Login</label>
+		        <div class="col-lg-10">
+					<p style="margin-top: 10px;">{{selectedUser.login}}</p>
+		        </div>
+		      </div>
+
+		      <div class="form-group">
+		        <label for="inputPassword" class="col-lg-2 control-label">Hasło</label>
+		        <div class="col-lg-10">
+					<p style="margin-top: 10px;">******</p>
+		        </div>
+		      </div>
+
+		      <div class="form-group">
+		        <label for="select" class="col-lg-2 control-label">Rola</label>
+		        <div class="col-lg-10">
+		        	<p style="margin-top: 10px;">{{selectedUser.role}}</p>
+		        </div>
+		      </div>
+
+		      <div class="form-group">
+		        <div class="col-lg-10 col-lg-offset-2">
+					<a class="btn btn-warning" ng-click="edit()">Edytuj</a>
+					<a class="btn btn-danger">Usuń</a>
+		        </div>
+		      </div>
+
+		    </fieldset>
+		  </form>
+	</div>
+
+
+	<div class="col-sm-6" ng-show="editMode">
+		<h2>{{formLabel}} użytkownika</h2>
+		<form class="form-horizontal" style="background-color: #F8F8F8; border-radius: 15px; padding-top: 30px;" id="add-user-form">
+		    <fieldset>
+
+		      <div class="form-group">
+		        <label for="inputEmail" class="col-sm-2 control-label">Imię</label>
+		        <div class="col-sm-9">
+		          <input type="text" class="form-control" id="inputEmail" placeholder="Imię" value="{{selectedUser.name}}" ng-model="selectedUser.name" required>
+		        </div>
+		      </div>
+
+		     <div class="form-group">
+		        <label for="inputEmail" class="col-sm-2 control-label">Nazwisko</label>
+		        <div class="col-sm-9">
+		          <input type="text" class="form-control" id="inputEmail" placeholder="Nazwisko" value="{{selectedUser.surname}}" ng-model="selectedUser.surname" required>
+		        </div>
+		      </div>
+
+		   	  <div class="form-group">
+		        <label for="inputEmail" class="col-sm-2 control-label">Login</label>
+		        <div class="col-sm-9">
+		          <input type="text" class="form-control" id="inputEmail" placeholder="Login" value="{{selectedUser.login}}" ng-model="selectedUser.login" required>
+		        </div>
+		      </div>
+
+		      <div class="form-group">
+		        <label for="inputPassword" class="col-sm-2 control-label">Hasło</label>
+		        <div class="col-sm-9">
+		          <input type="password" class="form-control" id="inputPassword" placeholder="Hasło" ng-model="selectedUser.password" required>
+		        </div>
+		      </div>
+
+		      <div class="form-group">
+		        <label for="select" class="col-sm-2 control-label">Rola</label>
+		        <div class="col-sm-9">
+		          <select class="form-control" ng-model="selectedUser.role">
+		            <option>Kierownik budowy</option>
+		            <option>Inżynier budowy</option>
+		            <option>Kierownik projektu</option>
+		            <option>Specjalista ds. produkcji</option>
+		            <option>Specjalista ds. przygotowania inwestycji</option>
+		            <option>Dyrektor</option>
+		            <option>Administrator systemu</option>
+		          </select required>
+		        </div>
+		      </div>
+
+		      <div class="form-group">
+		        <div class="col-lg-10 col-lg-offset-2">
+		          <button type="reset" class="btn btn-default" ng-click="cancelEdit()">Anuluj</button>
+		          <button type="submit" class="btn btn-primary" ng-click="saveUser()">Zapisz</button>
+		        </div>
+		      </div>
+
+		    </fieldset>
+		  </form>
+	</div>
+</div>
