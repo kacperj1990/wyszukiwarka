@@ -2,8 +2,8 @@
 	<div class="col-sm-4 col-sm-offset-1">
 		<h2>Użytkownicy</h2>
 		<div class="list-group">
-	        <a href class="list-group-item" ng-repeat="user in users" ng-click="selectUser(this)" ng-class="{active: user.login==selectedUser.login}">
-	        	{{user.name}} {{user.surname}}
+	        <a href class="list-group-item" ng-repeat="user in users" ng-click="selectUser(this)" ng-class="{active: user.username==selectedUser.username}">
+	        	{{user.firstname}} {{user.lastname}} {{user.role}}
 	        </a>
 	     </div>
 	     <a class="btn btn-success" ng-click="addUser()">Dodaj użytkownika</a>
@@ -17,28 +17,28 @@
 		      <div class="form-group">
 		        <label class="col-lg-2 control-label">Imię</label>
 		        <div class="col-lg-10">
-					<p style="margin-top: 10px;">{{selectedUser.name}}</p>
+					<p style="margin-top: 10px;">{{selectedUser.firstname}}</p>
 		        </div>
 		      </div>
 
 		     <div class="form-group">
 		        <label for="inputEmail" class="col-lg-2 control-label">Nazwisko</label>
 		        <div class="col-lg-10">
-					<p style="margin-top: 10px;">{{selectedUser.surname}}</p>
+					<p style="margin-top: 10px;">{{selectedUser.lastname}}</p>
 		        </div>
 		      </div>
 
 		   	  <div class="form-group">
 		        <label for="inputEmail" class="col-lg-2 control-label">Login</label>
 		        <div class="col-lg-10">
-					<p style="margin-top: 10px;">{{selectedUser.login}}</p>
+					<p style="margin-top: 10px;">{{selectedUser.username}}</p>
 		        </div>
 		      </div>
 
 		      <div class="form-group">
 		        <label for="inputPassword" class="col-lg-2 control-label">Hasło</label>
 		        <div class="col-lg-10">
-					<p style="margin-top: 10px;">******</p>
+					<p style="margin-top: 10px;">{{selectedUser.password}}</p>
 		        </div>
 		      </div>
 
@@ -69,21 +69,21 @@
 		      <div class="form-group">
 		        <label for="inputEmail" class="col-sm-2 control-label">Imię</label>
 		        <div class="col-sm-9">
-		          <input type="text" class="form-control" id="inputEmail" placeholder="Imię" value="{{selectedUser.name}}" ng-model="selectedUser.name" required>
+		          <input type="text" class="form-control" id="inputEmail" placeholder="Imię" value="{{selectedUser.firstname}}" ng-model="selectedUser.firstname" required>
 		        </div>
 		      </div>
 
 		     <div class="form-group">
 		        <label for="inputEmail" class="col-sm-2 control-label">Nazwisko</label>
 		        <div class="col-sm-9">
-		          <input type="text" class="form-control" id="inputEmail" placeholder="Nazwisko" value="{{selectedUser.surname}}" ng-model="selectedUser.surname" required>
+		          <input type="text" class="form-control" id="inputEmail" placeholder="Nazwisko" value="{{selectedUser.lastname}}" ng-model="selectedUser.lastname" required>
 		        </div>
 		      </div>
 
 		   	  <div class="form-group">
 		        <label for="inputEmail" class="col-sm-2 control-label">Login</label>
 		        <div class="col-sm-9">
-		          <input type="text" class="form-control" id="inputEmail" placeholder="Login" value="{{selectedUser.login}}" ng-model="selectedUser.login" required>
+		          <input type="text" class="form-control" id="inputEmail" placeholder="Login" value="{{selectedUser.username}}" ng-model="selectedUser.username" required>
 		        </div>
 		      </div>
 
@@ -98,13 +98,7 @@
 		        <label for="select" class="col-sm-2 control-label">Rola</label>
 		        <div class="col-sm-9">
 		          <select class="form-control" ng-model="selectedUser.role">
-		            <option>Kierownik budowy</option>
-		            <option>Inżynier budowy</option>
-		            <option>Kierownik projektu</option>
-		            <option>Specjalista ds. produkcji</option>
-		            <option>Specjalista ds. przygotowania inwestycji</option>
-		            <option>Dyrektor</option>
-		            <option>Administrator systemu</option>
+		          	<option ng-repeat="role in roles">{{role}}</option>
 		          </select required>
 		        </div>
 		      </div>

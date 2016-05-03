@@ -78,13 +78,4 @@ public class AuthenticationRestController {
             return ResponseEntity.badRequest().body(null);
         }
     }
-    
-    @RequestMapping(value="/addNewUser", method = RequestMethod.POST)
-    public ResponseEntity<?> addNewUser(@RequestBody User user) {
-        BCryptPasswordEncoder bcpe = new BCryptPasswordEncoder();
-        String encodedPass = bcpe.encode(user.getPassword());
-        user.setPassword(encodedPass);
-        userRepository.insert(user);
-        return ResponseEntity.ok("");
-    }
 }

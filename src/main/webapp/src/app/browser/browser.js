@@ -13,7 +13,7 @@ angular.module( 'ngBoilerplate.browser', [
     data:{ pageTitle: 'browser' }
   });
 })
-.controller( 'BrowserCtrl', function BrowserController( $scope, $rootScope, $http ) {
+.controller( 'BrowserCtrl', function BrowserController( $scope, $rootScope, $http, CategoryService ) {
 
 	$rootScope.showNavbar = true;
 
@@ -78,9 +78,15 @@ angular.module( 'ngBoilerplate.browser', [
 
 	$scope.data = [];
 
-	$http.get('http://localhost:8080/categoriesTree').success(function(data){
-		console.log('kategorie: ', data);
-		$scope.data = data;		
-	});
+	if(CategoryService.categoriesTree === null) {
+		$http.get('http://localhost:8080/categoriesTree').success(function(data){
+			CategoryService.categoriesTree= $scope.data = data;		
+		});
+	} else {
+		$scope.data = CategoryService.categoriesTree;
+	}
+})
+.service('CategoryService', function() {
+	this.categoriesTree = null;
 })
 ;
