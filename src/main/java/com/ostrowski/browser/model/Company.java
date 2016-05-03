@@ -13,27 +13,43 @@ import org.springframework.data.mongodb.core.mapping.Document;
  *
  * @author Kacper
  */
-@Document(collection="companies")
+@Document(collection = "companies")
 public class Company {
-    
+
     @Id
     private String id;
-    
+
     private String companyName;
     private String krs;
     private String regon;
     private ContactPerson contactPerson;
     private List<String> categories;
-    
-    public Company(String name, String krs, String regon, ContactPerson contactPerson, List<String> categories) {
-        this.companyName = name;
+    private List<String> allowedRoles;
+
+    public Company(String id, String companyName, String krs, String regon, ContactPerson contactPerson, List<String> categories, List<String> allowedRoles) {
+        this.id = id;
+        this.companyName = companyName;
         this.krs = krs;
         this.regon = regon;
         this.contactPerson = contactPerson;
         this.categories = categories;
-    }    
-    
-    private Company(){}
+        this.allowedRoles = allowedRoles;
+    }
+
+    private Company() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public List<String> getAllowedRoles() {
+        return allowedRoles;
+    }
+
+    public void setAllowedRoles(List<String> allowedRoles) {
+        this.allowedRoles = allowedRoles;
+    }
 
     public String getCompanyName() {
         return companyName;
