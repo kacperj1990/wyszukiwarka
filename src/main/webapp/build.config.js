@@ -76,7 +76,7 @@ module.exports = {
     css: [
       'vendor/angular-ui-tree/dist/angular-ui-tree.css',
       'src/css/app.css',
-      'src/css/united_theme_bootstrap.css',
+      'src/css/theme_bootstrap.css',
       'src/css/font-awesome.css',
       'additional_modules/angular-busy/dist/angular-busy.min.css'
     ],

@@ -13,7 +13,7 @@ angular.module( 'ngBoilerplate.home', [
     data:{ pageTitle: 'Home' }
   });
 })
-.controller( 'HomeCtrl', function HomeController( $scope, $rootScope, $http, $location ) {
+.controller( 'HomeCtrl', function HomeController( $scope, $rootScope, $http, $location, CONFIG ) {
 
     $rootScope.showNavbar = false;
 
@@ -21,7 +21,7 @@ angular.module( 'ngBoilerplate.home', [
 
     $scope.login = function() {
       $scope.error = false;
-      $http.post('http://localhost:8080/auth', {
+      $http.post(CONFIG.host + '/auth', {
         'username': $scope.userLogin,
         'password': $scope.userPassword
       }, {
@@ -31,6 +31,7 @@ angular.module( 'ngBoilerplate.home', [
       }).success(function(data){
         if(data.token) {
           localStorage.setItem('token', data.token);
+          $rootScope.decodeToken();
           $location.path('/browser');
         } else {
           $scope.error = true;

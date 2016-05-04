@@ -29,8 +29,8 @@ public class Wyszukiwarka {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:9000")
-			.allowedMethods("GET", "POST", "PUT", "DELETE")
+                        .allowedOrigins("*")
+			.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
 			.allowedHeaders("Content-Type", "Authorization")
 			//.exposedHeaders("header1", "header2")
 			//.allowCredentials(false)

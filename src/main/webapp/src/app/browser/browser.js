@@ -13,14 +13,14 @@ angular.module( 'ngBoilerplate.browser', [
     data:{ pageTitle: 'browser' }
   });
 })
-.controller( 'BrowserCtrl', function BrowserController( $scope, $rootScope, $http, CategoryService ) {
+.controller( 'BrowserCtrl', function BrowserController( $scope, $rootScope, $http, CategoryService, CONFIG ) {
 
 	$rootScope.showNavbar = true;
 
 	$scope.loadContacts = function(scope) {
 		if(scope.$nodeScope.$modelValue.nodes.length === 0) {
 			$scope.contacts = [];
-			$http.get('http://localhost:8080/companiesCategory/' + scope.$nodeScope.$modelValue.id).success(function(data){
+			$http.get(CONFIG.host + '/companiesCategory/' + scope.$nodeScope.$modelValue.id).success(function(data){
 				$scope.contacts = data;	
 			});
 		} else {
@@ -47,9 +47,8 @@ angular.module( 'ngBoilerplate.browser', [
 		$scope.isLoading = true;
 		$scope.contacts = [];
 
-		$scope.promise = $http.get('http://localhost:8080/companiesSearch/' + $scope.searchText, {
-			'Content-Type': 'application/json',
-			'Authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZGllbmNlIjoid2ViIiwiY3JlYXRlZCI6MTQ2MTg0Njc5NTA4MiwiZXhwIjoxNDYyNDUxNTk1fQ.XOa9jHOlCBffTMM9XtbKnBNiS1VfiYuu5CeoaPMcjMcY8kUM4w6NqXhyV7SHEHlTxfNVdtO5QfngrZlY9DZaOA'
+		$scope.promise = $http.get(CONFIG.host + '/companiesSearch/' + $scope.searchText, {
+			'Content-Type': 'application/json'
 		})
 		.success(function(data){
 			$scope.isLoading = false;
@@ -79,7 +78,7 @@ angular.module( 'ngBoilerplate.browser', [
 	$scope.data = [];
 
 	if(CategoryService.categoriesTree === null) {
-		$http.get('http://localhost:8080/categoriesTree').success(function(data){
+		$http.get(CONFIG.host + '/categoriesTree').success(function(data){
 			CategoryService.categoriesTree= $scope.data = data;		
 		});
 	} else {

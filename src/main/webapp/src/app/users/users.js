@@ -16,7 +16,7 @@ angular.module( 'ngBoilerplate.users', [
   });
 })
 
-.controller( 'UsersCtrl', function UsersCtrl( $scope, $http, RolesService ) {
+.controller( 'UsersCtrl', function UsersCtrl( $scope, $http, RolesService, CONFIG ) {
 
   $scope.selectedUser = {};
 
@@ -32,6 +32,16 @@ angular.module( 'ngBoilerplate.users', [
 
   $scope.cancelEdit = function() {
     $scope.editMode = false;
+  };
+
+  $scope.deleteUser = function() {
+    $http({
+      method: 'DELETE',
+      url: CONFIG.host + '/removeUser/' + $scope.selectedUser.username
+    }).success(function(data){
+      console.log('SUKCES ', data);
+      $scope.loadUser();
+    });
   };
 
 
@@ -50,11 +60,11 @@ angular.module( 'ngBoilerplate.users', [
 
   $scope.saveUser = function() {
 
-    $scope.selectedUser.role = Object.keys($scope.rolesDict).filter(function(r){
-        return $scope.rolesDict[r] === $scope.selectedUser.role;
+    $scope.selectedUser.role = Object.keys($scope.roles).filter(function(r){
+        return $scope.roles[r] === $scope.selectedUser.role;
     })[0];
 
-    $http.post('http://localhost:8080/addNewUser', $scope.selectedUser, {
+    $http.post(CONFIG.host + '/addNewUser', $scope.selectedUser, {
       'Content-Type': 'application/json'
     }).success(function(data){
       $scope.loadUser();
@@ -64,37 +74,35 @@ angular.module( 'ngBoilerplate.users', [
     });
   };
 
-
-  $scope.roles = [];
-  $scope.rolesDict = {};
-  if(RolesService.rolesDict === null) {
-    $http.get('http://localhost:8080/roles').success(function(data) {
-        $scope.rolesDict = RolesService.rolesDict = data;
-        $scope.roles =  RolesService.rolesDict;
-    }).error(function(data) {
-      console.log(data);
-    });
-  } else {
-    $scope.roles = Object.keys(RolesService.rolesDict);
-    $scope.rolesDict = RolesService.rolesDict;
-  }
-
-
+  $scope.roles = {};
+  $scope.rolesDict = [];
   $scope.users = [];
 
   $scope.loadUser = function() {
-    $http.get('http://localhost:8080/users').success(function(data) {
-        data = data.map(function(d) { 
-          d.role = $scope.rolesDict[d.role];
-        });
+    $http.get(CONFIG.host + '/users').success(function(data) {
         $scope.users = data;
+        $scope.users.forEach(function(u){
+          u.role = $scope.roles[u.role];
+        });
     }).error(function(data) {
       console.log(data);
     });
   };
 
+  if(RolesService.rolesDict === null) {
+    $http.get(CONFIG.host + '/roles').success(function(data) {
+        RolesService.rolesDict = $scope.roles =  data;
+        $scope.rolesDict = RolesService.rolesDict;
+        $scope.loadUser();
+    }).error(function(data) {
+      console.log(data);
+    });
+  } else {
+    $scope.roles = RolesService.rolesDict;
+    $scope.rolesDict = RolesService.rolesDict;
+    $scope.loadUser();
+  }
 
-  $scope.loadUser();
 })
 .service('RolesService', function() {
   this.rolesDict = null;

@@ -5,6 +5,7 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.browser',
   'ngBoilerplate.company',
   'ngBoilerplate.users',
+  'ngBoilerplate.config',
   'ui.router',
   'ui.tree',
   'duScroll',
@@ -51,10 +52,26 @@ angular.module( 'ngBoilerplate', [
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $rootScope ) {
 
   $rootScope.showNavbar = true;
+  $rootScope.globalUser = {};
 
   $scope.logout = function() {
     $location.path('/home');
     localStorage.removeItem('token');
+  };
+
+  $rootScope.decodeToken = function() {
+    var token = localStorage.getItem('token');
+    if(token) {
+      var userData = JSON.parse(atob(token.split('.')[1]));
+      $rootScope.globalUser = userData;
+    }
+  };
+
+  $rootScope.isAdmin = function() {
+    if($rootScope.globalUser.sub) {
+      return $rootScope.globalUser.roles[0].authority === 'ROLE_ADMIN';
+    }
+    return false;
   };
 
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
@@ -63,6 +80,10 @@ angular.module( 'ngBoilerplate', [
     }
   });
   
+  $scope.init = function() {
+    $rootScope.decodeToken();
+  };
+
 })
 
 ;
