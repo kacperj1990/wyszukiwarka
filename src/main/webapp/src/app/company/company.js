@@ -16,7 +16,13 @@ angular.module( 'ngBoilerplate.company', [
   });
 })
 
-.controller( 'CompanyCtrl', function CompanyCtrl( $scope, $http, CONFIG ) {
+.controller( 'CompanyCtrl', function CompanyCtrl( $scope, $http, CONFIG, RolesService ) {
+
+  $scope.roles = {};
+
+  RolesService.rolesPromise.then(function(data){
+    $scope.roles = Object.keys(data.data).map(function(d){ return data.data[d];});
+  });
 
   $scope.editMode = false;
 

@@ -107,3 +107,8 @@ tr.angular-ui-tree-empty {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.overflow-window {
+  overflow-y: scroll;
+  max-height: 50em;
+}

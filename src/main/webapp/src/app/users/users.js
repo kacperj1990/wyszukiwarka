@@ -60,11 +60,22 @@ angular.module( 'ngBoilerplate.users', [
 
   $scope.saveUser = function() {
 
+    var path = '';
+    var httpMethod = '';
+
+    if($scope.formLabel === 'Dodawanie') {
+      path = '/addNewUser';
+      httpMethod = 'post';
+    } else {
+      path = '/editUser';
+      httpMethod = 'put';
+    }
+
     $scope.selectedUser.role = Object.keys($scope.roles).filter(function(r){
         return $scope.roles[r] === $scope.selectedUser.role;
     })[0];
 
-    $http.post(CONFIG.host + '/addNewUser', $scope.selectedUser, {
+    $http[httpMethod](CONFIG.host + path, $scope.selectedUser, {
       'Content-Type': 'application/json'
     }).success(function(data){
       $scope.loadUser();
@@ -104,6 +115,14 @@ angular.module( 'ngBoilerplate.users', [
   }
 
 })
-.service('RolesService', function() {
+.service('RolesService', function($http, CONFIG) {
+
   this.rolesDict = null;
+
+  this.rolesPromise = $http.get(CONFIG.host + '/roles').success(function(data) {
+        console.log(data);
+        this.rolesDict =  data;
+    }).error(function(data) {
+        console.log(data);
+    });
 });

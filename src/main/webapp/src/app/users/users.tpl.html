@@ -1,9 +1,9 @@
 <div class="row">
 	<div class="col-sm-4 col-sm-offset-1">
 		<h2>Użytkownicy</h2>
-		<div class="list-group">
+		<div class="list-group overflow-window">
 	        <a href class="list-group-item" ng-repeat="user in users" ng-click="selectUser(this)" ng-class="{active: user.username==selectedUser.username}">
-	        	<span style="font-weight: bold;">{{user.firstname}} {{user.lastname}}</span>, {{user.role}}
+	        	<span style="font-weight: bold;">{{user.username}}: {{user.firstname}} {{user.lastname}}</span>, {{user.role}}
 	        </a>
 	     </div>
 	     <a class="btn btn-success" ng-click="addUser()">Dodaj użytkownika</a>

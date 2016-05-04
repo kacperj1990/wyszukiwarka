@@ -103,13 +103,6 @@ public class UserRestController {
             userToEdit.setFirstname(user.getFirstname());
             userToEdit.setLastname(user.getLastname());
             userToEdit.setRole(user.getRole());
-
-            BCryptPasswordEncoder bcpe = new BCryptPasswordEncoder();
-            String newPassword = bcpe.encode(user.getPassword());
-            if (!newPassword.equals(userToEdit.getPassword())) {
-                userToEdit.setPassword(bcpe.encode(user.getPassword()));
-            }
-
             userRepository.save(userToEdit);
 
             return ResponseEntity.ok("User deleted");

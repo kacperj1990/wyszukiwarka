@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-sm-4 col-sm-offset-1">
 		<h2>Firmy</h2>
-		<div class="list-group">
+		<div class="list-group overflow-window">
 	        <a href class="list-group-item" ng-repeat="company in companies" ng-click="selectCompany(this)" ng-class="{active: company.companyName==selectedCompany.companyName}">
 	        	<span style="font-weight: bold;">{{company.companyName}}
 	        </a>
@@ -131,14 +131,18 @@
 		      <div class="form-group">
 		        <label for="inputEmail" class="col-sm-2 control-label">Kategorie</label>
 		        <div class="col-sm-9">
-		          <input type="text" class="form-control" id="inputEmail" placeholder="Kategorie" value="{{selectedCompany.categories}}" ng-model="selectedCompany.categories" required>
+		          <select type="text" class="form-control" id="inputEmail" placeholder="Kategorie" required multiple>
+		          	<option ng-repeat="category in selectedCompany.categories">{{category}}</option>
+		          </select>
 		        </div>
 		      </div>
 
 		      <div class="form-group">
 		        <label for="inputEmail" class="col-sm-2 control-label">Uprawnienia</label>
 		        <div class="col-sm-9">
-		          <input type="text" class="form-control" id="inputEmail" placeholder="Uprawnienia" value="{{selectedCompany.allowedRoles}}" ng-model="selectedCompany.allowedRoles" required>
+					<select multiple="" class="form-control">
+                        <option ng-repeat="role in roles">{{role}}</option>
+					</select>
 		        </div>
 		      </div>
 
