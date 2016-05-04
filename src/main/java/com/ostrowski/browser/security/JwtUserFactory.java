@@ -2,8 +2,8 @@ package com.ostrowski.browser.security;
 
 import com.ostrowski.browser.model.User;
 import java.util.LinkedList;
-import org.springframework.security.core.GrantedAuthority;
-
+import java.util.List;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 public final class JwtUserFactory {
 
@@ -14,20 +14,16 @@ public final class JwtUserFactory {
         return new JwtUser(
                 user.getId(),
                 user.getUsername(),
-//                user.getFirstname(),
-//                user.getLastname(),
+                user.getFirstname(),
+                user.getLastname(),
                 user.getPassword(),
-                //mapToGrantedAuthorities(user.getAuthorities()),
-                new LinkedList<GrantedAuthority>()
-                //,
-//                user.getEnabled(),
-//                user.getLastPasswordResetDate()
+                getAuthorities(user.getRole())
         );
     }
-
-//    private static List<GrantedAuthority> mapToGrantedAuthorities(List<Authority> authorities) {
-//        return authorities.stream()
-//                .map(authority -> new SimpleGrantedAuthority(authority.getName().name()))
-//                .collect(Collectors.toList());
-//    }
+    private static List<SimpleGrantedAuthority> getAuthorities(String role) {
+        SimpleGrantedAuthority sga = new SimpleGrantedAuthority(role);
+        LinkedList<SimpleGrantedAuthority> ll = new LinkedList();
+        ll.add(sga);
+        return ll;
+    }
 }

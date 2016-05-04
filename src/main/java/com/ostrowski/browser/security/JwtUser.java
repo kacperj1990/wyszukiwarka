@@ -1,12 +1,10 @@
 package com.ostrowski.browser.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.security.core.GrantedAuthority;
+import java.util.List;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.Collection;
-import java.util.Date;
 import org.bson.types.ObjectId;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 /**
  * Created by stephan on 20.03.16.
@@ -15,35 +13,32 @@ public class JwtUser implements UserDetails {
 
     private final ObjectId id;
     private final String username;
-//    private final String firstname;
-//    private final String lastname;
+    private final String firstname;
+    private final String lastname;
     private final String password;
-    private final Collection<? extends GrantedAuthority> authorities;
+    private final List<SimpleGrantedAuthority> authorities;
 //    private final boolean enabled;
 //    private final Date lastPasswordResetDate;
 
-//    public JwtUser(Long id, String username, String firstname, String lastname, String password, Collection<? extends GrantedAuthority> authorities, boolean enabled, Date lastPasswordResetDate) {
-//        this.id = id;
-//        this.username = username;
-//        this.firstname = firstname;
-//        this.lastname = lastname;
-//        this.password = password;
-//        this.authorities = authorities;
-//        this.enabled = enabled;
-//        this.lastPasswordResetDate = lastPasswordResetDate;
-//    }
-
-    public JwtUser(ObjectId id, String username, String password, Collection<? extends GrantedAuthority> authorities) {
+    public JwtUser(ObjectId id, String username, String firstname, String lastname, String password, List<SimpleGrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.password = password;
         this.authorities = authorities;
+//        this.enabled = enabled;
+//        this.lastPasswordResetDate = lastPasswordResetDate;
     }
 
-    
     @JsonIgnore
-    public ObjectId getId() {
-        return id;
+    public String getFirstname() {
+        return firstname;
+    }
+
+    @JsonIgnore
+    public String getLastname() {
+        return lastname;
     }
 
     @Override
@@ -69,25 +64,13 @@ public class JwtUser implements UserDetails {
         return true;
     }
 
-//    public String getFirstname() {
-//        return firstname;
-//    }
-//
-//    public String getLastname() {
-//        return lastname;
-//    }
-
     @JsonIgnore
     @Override
     public String getPassword() {
         return password;
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
-    }
-
+    @JsonIgnore
     @Override
     public boolean isEnabled() {
         return true;
@@ -97,4 +80,10 @@ public class JwtUser implements UserDetails {
 //    public Date getLastPasswordResetDate() {
 //        return lastPasswordResetDate;
 //    }
+
+    @JsonIgnore
+    @Override
+    public List<SimpleGrantedAuthority> getAuthorities() {
+        return this.authorities;
+    }
 }
