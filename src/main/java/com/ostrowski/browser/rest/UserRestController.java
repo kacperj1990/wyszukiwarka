@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 /**
  *
@@ -40,6 +41,7 @@ public class UserRestController {
     @Autowired
     MongoTemplate mongoTemplate;
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/roles", method = RequestMethod.GET)
     public ResponseEntity<?> getRoles() {
 
@@ -52,11 +54,13 @@ public class UserRestController {
         return ResponseEntity.ok(json);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public ResponseEntity<?> getUsers() {
         return ResponseEntity.ok(userRepository.findAll());
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/addNewUser", method = RequestMethod.POST)
     public ResponseEntity<?> addNewUser(@RequestBody User user) throws Exception {
 
@@ -74,6 +78,7 @@ public class UserRestController {
         return ResponseEntity.ok("User added");
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/removeUser/{username}", method = RequestMethod.DELETE)
     public ResponseEntity<?> removeUser(@PathVariable("username") String username) throws Exception {
         Query query = new Query();
@@ -87,6 +92,7 @@ public class UserRestController {
         }
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/editUser", method = RequestMethod.PUT)
     public ResponseEntity<?> editUser(@RequestBody User user) throws Exception {
         Query query = new Query();
@@ -97,15 +103,15 @@ public class UserRestController {
             userToEdit.setFirstname(user.getFirstname());
             userToEdit.setLastname(user.getLastname());
             userToEdit.setRole(user.getRole());
-            
+
             BCryptPasswordEncoder bcpe = new BCryptPasswordEncoder();
             String newPassword = bcpe.encode(user.getPassword());
-            if(!newPassword.equals(userToEdit.getPassword())) {
+            if (!newPassword.equals(userToEdit.getPassword())) {
                 userToEdit.setPassword(bcpe.encode(user.getPassword()));
             }
-            
+
             userRepository.save(userToEdit);
-            
+
             return ResponseEntity.ok("User deleted");
         } else {
             throw new Exception("User not found");
