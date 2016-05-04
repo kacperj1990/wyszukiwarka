@@ -16,17 +16,28 @@ angular.module( 'ngBoilerplate.company', [
   });
 })
 
-.controller( 'CompanyCtrl', function CompanyCtrl( $scope, $http, CONFIG, RolesService ) {
+.controller( 'CompanyCtrl', function CompanyCtrl( $scope, $http, CONFIG, RolesService, CategoryService ) {
 
   $scope.roles = {};
+  $scope.categoriesTree = [];
 
   RolesService.rolesPromise.then(function(data){
     $scope.roles = Object.keys(data.data).map(function(d){ return data.data[d];});
   });
 
+  CategoryService.categoriesTreePromise.then(function(data){
+    $scope.categoriesTree = data.data;
+  });
+
   $scope.editMode = false;
 
   $scope.companies = [];
+
+  $scope.secondLevelCat = [];
+
+  $scope.thirdLevelCat = [];
+
+  $scope.choosenCats = [];
 
   $scope.loadComapnies = function() {
     $http.get(CONFIG.host + '/companies').success(function(data){
@@ -93,6 +104,30 @@ angular.module( 'ngBoilerplate.company', [
               $scope.editMode = false;
             });
       }
+    };
+
+    $scope.rootCat = function(option) {
+      $scope.secondLevelCat = option.cat.nodes;
+      $scope.thirdLevelCat = [];
+    };
+
+    $scope.sCat = function (option) {
+      $scope.thirdLevelCat = option.scat.nodes;
+    };
+
+    $scope.addCat = function(cat) {
+      if(cat.nodes.length === 0) {
+        if($scope.choosenCats.indexOf(cat.id) === -1) {
+          $scope.choosenCats.push(cat.id);
+        }
+      }
+    };
+
+    $scope.removeCat = function(cat) {
+        if($scope.choosenCats.indexOf(cat) != -1) {
+          var index = $scope.choosenCats.indexOf(cat);
+          $scope.choosenCats.splice(index, 1);
+        }
     };
 
 })

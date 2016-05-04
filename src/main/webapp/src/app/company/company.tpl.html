@@ -103,14 +103,15 @@
 		<h2>{{formLabel}} firmy</h2>
 		<form class="form-horizontal" style="background-color: #F8F8F8; border-radius: 15px; padding-top: 30px;" id="add-company-form">
 		    <fieldset>
-		    <h4 style="padding-left: 5px; border-bottom-style: solid;border-bottom-width: 1px;">Dane firmy</h4>
+
+		      <h4 style="padding-left: 5px; border-bottom-style: solid;border-bottom-width: 1px;">Dane firmy</h4>
+
 		      <div class="form-group">
 		        <label for="inputEmail" class="col-sm-2 control-label">Nazwa firmy</label>
 		        <div class="col-sm-9">
 		          <input type="text" class="form-control" id="inputEmail" placeholder="Nazwa firmy" value="{{selectedCompany.companyName}}" ng-model="selectedCompany.companyName" required>
 		        </div>
 		      </div>
-
 
 		      <div class="form-group">
 		        <label for="inputEmail" class="col-sm-2 control-label">KRS</label>
@@ -119,7 +120,6 @@
 		        </div>
 		      </div>
 
-
 		     <div class="form-group">
 		        <label for="inputEmail" class="col-sm-2 control-label">REGON</label>
 		        <div class="col-sm-9">
@@ -127,14 +127,32 @@
 		        </div>
 		      </div>
 
-
 		      <div class="form-group">
 		        <label for="inputEmail" class="col-sm-2 control-label">Kategorie</label>
-		        <div class="col-sm-9">
-		          <select type="text" class="form-control" id="inputEmail" placeholder="Kategorie" required multiple>
-		          	<option ng-repeat="category in selectedCompany.categories">{{category}}</option>
-		          </select>
+		        <div class="col-sm-3">
+		        	<select multiple class="form-control">
+		        		<option ng-repeat="cat in categoriesTree" ng-click="rootCat(this)">{{cat.id}}</option>
+		        	</select>
 		        </div>
+		        <div class="col-sm-3">
+		        	<select multiple class="form-control">
+		        		<option ng-repeat="scat in secondLevelCat" ng-click="sCat(this)" ng-dblclick="addCat(scat)">{{scat.id}}</option>
+		        	</select>
+		        </div>
+		        <div class="col-sm-3">
+		        	<select multiple class="form-control">
+		        		<option ng-repeat="tcat in thirdLevelCat" ng-dblclick="addCat(tcat)">{{tcat.id}}</option>
+		        	</select>
+		        </div>
+		      </div>
+
+		      <div class="form-group">
+		      	<ul class="list-group col-sm-9 col-sm-offset-2">
+	                <li class="list-group-item" ng-repeat="cat in choosenCats" >
+	                	{{cat}}
+	                	<a class="pull-right btn btn-danger btn-xs" ng-click="removeCat(cat)"><span class="glyphicon glyphicon-remove"></span></a>
+	                </li>
+              	</ul>
 		      </div>
 
 		      <div class="form-group">

@@ -85,7 +85,11 @@ angular.module( 'ngBoilerplate.browser', [
 		$scope.data = CategoryService.categoriesTree;
 	}
 })
-.service('CategoryService', function() {
+.service('CategoryService', function($http, CONFIG) {
+
 	this.categoriesTree = null;
+	this.categoriesTreePromise = $http.get(CONFIG.host + '/categoriesTree').success(function(data){
+			this.categoriesTree = data;		
+		});
 })
 ;
